@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all queries
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new query
+    </h2>
+
+    <form action="/insert_query" method="post">
+      <div>
+        <label for="topic_box">
+          Topic
+        </label>
+
+        <input type="text" id="topic_box" name="query_topic">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image">
+      </div>
+
+      <button>
+        Create query
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Topic
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Image
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_queries.each do |a_query| %>
+      <tr>
+        <td>
+          <%= a_query.id %>
+        </td>
+
+        <td>
+          <%= a_query.topic %>
+        </td>
+
+        <td>
+          <%= a_query.user_id %>
+        </td>
+
+        <td>
+          <%= a_query.image %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_query.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_query.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/queries/<%= a_query.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Query #<%= @the_query.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/queries">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_query/<%= @the_query.id %>">
+          Delete query
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Topic
+      </dt>
+      <dd>
+        <%= @the_query.topic %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_query.user_id %>
+      </dd>
+
+      <dt>
+        Image
+      </dt>
+      <dd>
+        <%= @the_query.image %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_query.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_query.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit query
+    </h2>
+
+    <form action="/modify_query/<%= @the_query.id %>"  method="post" >
+      <div>
+        <label for="topic_box">
+          Topic
+        </label>
+
+        <input type="text" id="topic_box" name="query_topic" value="<%= @the_query.topic %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_query.user_id %>">
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image" value="<%= @the_query.image %>">
+      </div>
+
+      <button>
+        Update query
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
