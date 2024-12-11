@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   # Routes for the Query resource:
+  get("/", { :controller => "queries", :action => "index"})
 
   # CREATE
   post("/insert_query", { :controller => "queries", :action => "create" })
